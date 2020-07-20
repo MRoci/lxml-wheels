@@ -60,10 +60,7 @@ def main():
             if "=" in env_var
         ])
     elif IS_OSX:
-        env.update({
-            "CFLAGS": "$CFLAGS -flto",
-            "LDFLAGS": "$LDFLAGS -arch x86_64",
-        })
+        append_env(env, "LDFLAGS", "-arch x86_64")
 
     env_vars = [
         (name, env[name])
